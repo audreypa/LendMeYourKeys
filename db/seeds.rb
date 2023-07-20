@@ -20,3 +20,5 @@ User.destroy_all
   Car.create!(brand: "Ferrari", model: "296 GTB", address: "80 Avenue Kleber 75016 Paris", price_per_day: 200, user_id: User.second.id)
   Car.create!(brand: "Audi", model: "A3", address: "79 rue du Rocher 75008 Paris", price_per_day: 120, user_id: User.first.id)
   Car.create!(brand: "BMW", model: "Série 1", address: "13 impasse Pasteur 07300 Tournons sur Rhône ", price_per_day: 150, user_id: User.second.id)
+
+  Booking.create!(starts_at: "2023-07-20", ends_at: "2023-07-20", user_id: User.first.id, car_id: 2)

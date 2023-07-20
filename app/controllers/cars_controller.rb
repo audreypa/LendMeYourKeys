@@ -12,9 +12,6 @@ class CarsController < ApplicationController
                 info_window_html: render_to_string(partial: "info_window", locals: { car: @car })
     }
   end
-  def new
-    @car = Car.new
-  end
 
   private
 

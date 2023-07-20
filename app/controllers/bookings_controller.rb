@@ -1,8 +1,9 @@
+# app/controllers/bookings_controller.rb
 class BookingsController < ApplicationController
-  before_action :set_car, only: %i[new create]
+  before_action :set_car
 
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = current_user.bookings
   end
 
   def create
@@ -10,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.car = @car
     if @booking.car.user == current_user
-      flash[:notice] = "You cannot book your own car."
+      flash.now[:alert] = "You cannot book your own car."
       render 'cars/show'
     else
       if @booking.save
@@ -24,6 +25,7 @@ class BookingsController < ApplicationController
   end
 
   private
+
   def set_car
     @car = Car.find(params[:car_id])
   end

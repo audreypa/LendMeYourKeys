@@ -21,7 +21,7 @@ class Booking < ApplicationRecord
 
   def start_date_after_now
     return if starts_at.blank?
-    if starts_at < DateTime.now
+    if starts_at < Date.today
       errors.add(:starts_at, "must be after now")
     end
   end
