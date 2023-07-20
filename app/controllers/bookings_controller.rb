@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.car = @car
     if @booking.car.user == current_user
       flash[:alert] = " 🤔 You cannot book your own car !"
-      render 'cars/show'
+      redirect_to car_path(@car)
     else
       if @booking.save
         respond_to do |format|
@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
         end
       else
         flash[:alert] = "😱 Failed to create booking !"
-        render 'cars/show'
+        redirect_to car_path(@car)
       end
     end
   end
