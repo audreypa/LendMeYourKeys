@@ -20,6 +20,13 @@ module ApplicationHelper
     "#{icon_class('check')}"
   end
 
+  def user_icon
+    "#{icon_class('user')}"
+  end
+
+  def security_icon
+    "#{icon_class('car-on')}"
+  end
   private
 
   def icon_class(icon)

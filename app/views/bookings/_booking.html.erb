@@ -1,0 +1,6 @@
+<div class="d-flex flex-column align-items-center justify-content-center text-center mb-2 p-3 card_booking">
+  <h4 class="mb-3"><strong><%= booking.car.brand %> <%= booking.car.model %></strong></h4>
+  <p><strong>Starts at:</strong> <%= date_format(booking.starts_at) %></p>
+  <p><strong>Ends at:</strong> <%= date_format(booking.ends_at) %></p>
+  <p><strong>Total Price:</strong> <%= booking.total_price %>€</p>
+</div>

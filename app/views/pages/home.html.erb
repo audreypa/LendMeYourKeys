@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 class="text-center">Welcome to Lend Me Your Keys !</h1>
+
+<%= form_with url: cars_path, method: :get, local: true do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+<%= link_to cars_path, class:"text-decoration-none" do %>
+  <div class="card_booking d-flex flex-column justify-content-center align-items-center text-center">
+    <%= content_tag(:i, ' ', class:"#{car_icon} fa-2x mb-4") %>
+    <h4>See all our cars</h4>
+  </div>
+<% end %>

@@ -1,6 +1,6 @@
 # app/controllers/bookings_controller.rb
 class BookingsController < ApplicationController
-  before_action :set_car
+  before_action :set_car, only: %i[create]
 
   def index
     @bookings = current_user.bookings
@@ -11,16 +11,16 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.car = @car
     if @booking.car.user == current_user
-      flash.now[:alert] = "You cannot book your own car."
+      flash.now[:alert] = " 🤔 You cannot book your own car !"
       render 'cars/show'
     else
       if @booking.save
         respond_to do |format|
-          format.html { redirect_to car_path(@car), notice: 'Booking created successfully.' }
+          format.html { redirect_to car_path(@car), notice: '🥳 Booking created successfully !' }
           format.turbo_stream
         end
       else
-        flash.now[:alert] = "Failed to create booking."
+        flash.now[:alert] = "😱 Failed to create booking !"
         render 'cars/show'
       end
     end

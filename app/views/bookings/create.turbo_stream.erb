@@ -1,6 +1,6 @@
 <turbo-stream action="replace" target="booking_details">
   <template>
-    <div class="d-flex flex-column align-items-center justify-content-center text-center mb-2">
+    <div class="d-flex flex-column align-items-center justify-content-center text-center mb-2 p-3 confirmation-wrapper">
       <%= content_tag(:i, ' ', class:"#{car_side_icon} fa-2x ms-4 car_move_animation")%>
       <h4>Well done ! This car is yours !</h4>
       <p><strong>Starts at:</strong> <%= date_format(@booking.starts_at) %></p>

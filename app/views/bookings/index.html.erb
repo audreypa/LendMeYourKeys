@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Bookings</h1>
+<%= link_to "Back to cars", cars_path %>
+<h1 class="text-center mt-3">All My bookings</h1>
 
-<div id="bookings">
+<div class="cards">
   <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
+    <%= link_to car_path(booking.car), class:"text-decoration-none" do %>
+      <%= render booking %>
+    <% end %>
   <% end %>
 </div>
-
-<%= link_to "New booking", new_booking_path %>

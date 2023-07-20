@@ -19,10 +19,23 @@
 
   .card_product:hover {
     box-shadow: 0px 0px 10px $spray;
-    // add car_rotate_animation
     #car {
       animation: car_rotate 0.8s;
     }
+  }
+.card_booking {
+  border-radius: $border-radius;
+  border: 1px solid $st-tropaz;
+  background: $light-gray;
+  box-shadow: 0px 0px 6px $st-tropaz;
+  height: 13em;
+  width: 19em;
+
+  }
+
+  .card_booking:hover {
+    box-shadow: 0px 0px 10px $spray;
+
   }
 
   .wrapper-card {
@@ -31,4 +44,32 @@
     margin-top: 1em;
     justify-content: center;
     color: $st-tropaz;
+  }
+
+  .confirmation-wrapper {
+    border: 1px solid $st-tropaz;
+    background-color: #2659a584;
+    box-shadow: 1px 1px 5px $st-tropaz;
+    border-radius: $border-radius;
+    color: $light-gray;
+
+    .btn-ghost {
+      color: $st-tropaz;
+      border: 1px solid $st-tropaz;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: lighter;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-ghost:hover {
+      background-color: $light-gray;
+      color: $st-tropaz;
+      font-weight: bold;
+    }
+  }
+
+  .product_info {
+    gap: 10em;
   }
