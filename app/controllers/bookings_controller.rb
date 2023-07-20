@@ -15,8 +15,10 @@ class BookingsController < ApplicationController
       render 'cars/show'
     else
       if @booking.save
-        flash[:notice] = "Booking created successfully."
-        redirect_to car_path(@car)
+        respond_to do |format|
+          format.html { redirect_to car_path(@car), notice: 'Booking created successfully.' }
+          format.turbo_stream
+        end
       else
         flash.now[:alert] = "Failed to create booking."
         render 'cars/show'
