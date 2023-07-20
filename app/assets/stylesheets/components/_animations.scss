@@ -10,6 +10,9 @@
 .car_move_animation {
   animation: car_move 0.8s linear infinite;
 }
+.car_move_animation_slower {
+  animation: car_move 9s linear infinite;
+}
 
 @keyframes car_rotate {
   0% {

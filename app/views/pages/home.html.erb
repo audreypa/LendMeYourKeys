@@ -1,14 +1,17 @@
-<h1 class="text-center">Welcome to Lend Me Your Keys !</h1>
+<h1 class="text-center mb-3">Welcome to Lend Me Your Keys !</h1>
+<%= content_tag(:i, ' ', class:"#{car_side_icon} fa-2x ms-4 car_move_animation_slower")%>
 
-<%= form_with url: cars_path, method: :get, local: true do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search" %>
-<% end %>
+<div class="d-flex flex-column justify-content-center align-items-center text-center card_home">
+  <%= form_with url: cars_path, method: :get, local: true, class: "form-inline my-2 my-lg-0 w-50" do %>
+    <%= text_field_tag :query, params[:query], class: "form-control mr-sm-2 mb-2", placeholder: "Search for cars" %>
+    <%= submit_tag "Search", class: "btn btn-ghost my-2 my-sm-0" %>
+  <% end %>
 
 
-<%= link_to cars_path, class:"text-decoration-none" do %>
-  <div class="card_booking d-flex flex-column justify-content-center align-items-center text-center">
-    <%= content_tag(:i, ' ', class:"#{car_icon} fa-2x mb-4") %>
-    <h4>See all our cars</h4>
-  </div>
-<% end %>
+  <%= link_to cars_path, class:"text-decoration-none" do %>
+    <div class="card_booking d-flex flex-column justify-content-center align-items-center text-center mt-4">
+      <%= content_tag(:i, ' ', class:"#{car_icon} fa-2x mb-4") %>
+      <h4>See all our cars</h4>
+    </div>
+  <% end %>
+</div>
