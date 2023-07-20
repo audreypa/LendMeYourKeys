@@ -1,10 +1,34 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: ocean-green"><%= notice %></p>
 
-<%= render @car %>
-
-<div>
-  <%= link_to "Edit this car", edit_car_path(@car) %> |
-  <%= link_to "Back to cars", cars_path %>
-
-  <%= button_to "Destroy this car", @car, method: :delete %>
+<div class="mb-4">
+  <%= link_to "Back to cars", cars_path, class:"text-decoration-none", style:"color: " %>
 </div>
+
+<div class="d-flex flex-row ms-3 justify-items-center product_info" >
+  <%= render @car %>
+  <div class="map ms-4" style="width: 40%; height: 80%;"
+    data-controller="map" data-map-marker-value="<%= @marker.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
+<%# ---------Unavailable Dates---------- %>
+<% array = [] %>
+<% @car.bookings.each do |booking| %>
+  <% array << { from: booking.starts_at, to: booking.ends_at } %>
+<% end %>
+<%# ------------------------------------ %>
+
+<div class="car-book">
+  <%= simple_form_for([@car, @booking]) do |f| %>
+    <p>When do you want to book the car ? :</p>
+    <input class="form-input-select" type="string" placeholder='Select your desired dates' data-controller="datepicker" data-datepicker-array-value=<%= array.to_json %>>
+    <%= f.input :starts_at, as: :hidden, input_html: { id: "start_date" } %>
+    <%= f.input :ends_at, as: :hidden, input_html: { id: "end_date" } %>
+    <%= f.submit 'Book' %>
+  <% end %>
+</div>
+
+<%# <div class="">
+    <p class="home-offer-card-price">Total : <%= @booking.total_price %>€ </p>
+<%# </div> %> %>

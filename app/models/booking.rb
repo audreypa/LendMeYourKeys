@@ -6,6 +6,11 @@ class Booking < ApplicationRecord
   validate :end_date_after_start_date
   validate :start_date_after_now
 
+  def total_price
+    num_days = (ends_at.to_date - starts_at.to_date).to_i + 1
+    num_days * car.price_per_day
+  end
+
   private
   def end_date_after_start_date
     return if ends_at.blank? || starts_at.blank?

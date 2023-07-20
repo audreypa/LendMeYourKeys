@@ -5,8 +5,13 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
-  def show; end
-
+  def show
+    @booking = Booking.new
+    @marker = { lat: @car.geocode[0],
+                lng: @car.geocode[1],
+                info_window_html: render_to_string(partial: "info_window", locals: { car: @car })
+    }
+  end
   def new
     @car = Car.new
   end

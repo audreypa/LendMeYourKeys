@@ -1,0 +1,21 @@
+@keyframes car_move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.car_move_animation {
+  animation: car_move 0.8s linear infinite;
+}
+
+@keyframes car_rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

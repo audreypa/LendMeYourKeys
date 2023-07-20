@@ -1,32 +1,17 @@
-<div id="<%= dom_id car %>">
-  <p>
-    <strong>Brand:</strong>
-    <%= car.brand %>
-  </p>
-
-  <p>
-    <strong>Model:</strong>
-    <%= car.model %>
-  </p>
-
-  <p>
-    <strong>Year of production:</strong>
-    <%= car.year_of_production %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= car.address %>
-  </p>
-
-  <p>
-    <strong>Price per day:</strong>
-    <%= car.price_per_day %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= car.user_id %>
-  </p>
-
-</div>
+  <div class="card_product d-flex flex-column p-2 m-2">
+    <div class="flex-grow-0 d-flex justify-content-center align-items-center my-2"><%= content_tag(:i, ' ', class:"#{car_icon} fa-2x", id:"car")%></div>
+    <div class="flex-grow-1 d-flex flex-row m-2">
+      <div class="d-flex flex-column col-7">
+        <div>
+        </div>
+      </div>
+      <div class="d-flex flex-column ms-3 justify-items-center ">
+        <div class="d-flex flex-row justify-items-center mx-3"> <%= content_tag(:i, ' ', class:"#{car_icon}")%><p class="ms-2">Brand: <%= car.brand %></p></div>
+        <div class="d-flex flex-row justify-items-center mx-3"> <%= content_tag(:i, ' ', class:"#{car_icon}")%><p class="ms-2">Model: <%= car.model %></p></div>
+        <div class="d-flex flex-row justify-items-center mx-3"> <%= content_tag(:i, ' ', class:"#{car_icon}")%><p class="ms-2">Address: <%= car.address %></p></div>
+      <div class="mt-5 d-flex">
+        <h2><%= car.price_per_day %>€/day</h2>
+      </div>
+      </div>
+    </div>
+    </div>
