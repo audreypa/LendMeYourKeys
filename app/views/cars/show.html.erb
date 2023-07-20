@@ -4,7 +4,7 @@
 
 <div class="d-flex flex-row ms-3 justify-content-around product_info" >
   <%= render @car %>
-  <div class="map ms-4" style="width: 40%; height: 80%;"
+  <div class="map ms-4" style="width: 50%; height: 100%;"
     data-controller="map" data-map-marker-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
