@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.car = @car
     if @booking.car.user == current_user
-      flash.now[:alert] = " 🤔 You cannot book your own car !"
+      flash[:alert] = " 🤔 You cannot book your own car !"
       render 'cars/show'
     else
       if @booking.save
@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
           format.turbo_stream
         end
       else
-        flash.now[:alert] = "😱 Failed to create booking !"
+        flash[:alert] = "😱 Failed to create booking !"
         render 'cars/show'
       end
     end
